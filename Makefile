@@ -8,6 +8,9 @@ all: main
 bind_files.h bind_files.c:
     ./bind.sh
 
+# 固定配置文件路径
+CONF_FILE = config/current_config.conf
+
 # 读取配置文件
 include $(CONF_FILE)
 
