@@ -61,7 +61,8 @@ ARCH=$(select_option "$MSG_ARCH" "${ARCH_OPTIONS[@]}")
 OS=$(select_option "$MSG_OS" "${OS_OPTIONS[@]}")
 FEATURES=$(select_option "$MSG_FEATURES" "${FEATURE_OPTIONS[@]}")
 
-# 生成配置文件
+# 创建配置目录并生成配置文件
+mkdir -p config
 CONF_FILE="config/current_config.conf"
 echo "ARCH=${ARCH}" > $CONF_FILE
 echo "OS=${OS}" >> $CONF_FILE

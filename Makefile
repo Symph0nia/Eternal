@@ -12,7 +12,7 @@ bind_files.h bind_files.c:
 CONF_FILE = config/current_config.conf
 
 # 读取配置文件
-include $(CONF_FILE)
+-include $(CONF_FILE)
 
 # 根据配置文件设置源文件和编译选项
 ifeq ($(OS),linux)
