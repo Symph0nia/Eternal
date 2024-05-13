@@ -62,8 +62,8 @@ OS=$(select_option "$MSG_OS" "${OS_OPTIONS[@]}")
 FEATURES=$(select_option "$MSG_FEATURES" "${FEATURE_OPTIONS[@]}")
 
 # 创建配置目录并生成配置文件
-mkdir -p config
-CONF_FILE="config/current_config.conf"
+mkdir -p ../config
+CONF_FILE="../config/current_config.conf"
 echo "ARCH=${ARCH}" > $CONF_FILE
 echo "OS=${OS}" >> $CONF_FILE
 if [[ "$FEATURES" == *"Registry"* ]]; then
@@ -76,4 +76,5 @@ fi
 echo "$CONFIG_SAVED $CONF_FILE"
 
 # 运行Makefile
+cd ..
 make all

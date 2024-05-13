@@ -5,7 +5,7 @@ CFLAGS = -Wall -I.
 all: main
 
 # 运行脚本以生成C文件
-bind_files.h bind_files.c:
+src/bind_files.h src/bind_files.c:
 	./bind.sh
 
 # 固定配置文件路径
@@ -16,22 +16,22 @@ CONF_FILE = config/current_config.conf
 
 # 根据配置文件设置源文件和编译选项
 ifeq ($(OS),linux)
-	SOURCES = main.c system_info.c linux_persistence_bashrc.c release_bind_files.c bind_files.c
+	SOURCES = src/main.c src/system_info.c src/linux_persistence_bashrc.c src/release_bind_files.c src/bind_files.c
 	ifeq ($(FEATURE_BASHRC_MOD),1)
 		CFLAGS += -DBASHRC_MOD
 	endif
 endif
 
 ifeq ($(OS),windows)
-	SOURCES = main.c system_info.c release_bind_files.c bind_files.c
+	SOURCES = src/main.c src/system_info.c src/release_bind_files.c src/bind_files.c
 	ifeq ($(FEATURE_REGISTRY_MOD),1)
-		SOURCES += windows_persistence_registry.c
+		SOURCES += src/windows_persistence_registry.c
 		CFLAGS += -DREGISTRY_MOD
 	endif
 endif
 
 ifeq ($(OS),mac)
-	SOURCES = main.c system_info.c release_bind_files.c bind_files.c
+	SOURCES = src/main.c src/system_info.c src/release_bind_files.c src/bind_files.c
 	# 根据mac系统添加特定的功能代码
 endif
 
@@ -47,7 +47,7 @@ main: $(SOURCES:.c=.o)
 
 # 清理目标
 clean:
-	rm -f main *.o bind_files.h bind_files.c
+	rm -f main *.o src/bind_files.h src/bind_files.c
 
 # PHONY目标
 .PHONY: all clean
