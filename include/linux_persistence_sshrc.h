@@ -1,0 +1,6 @@
+#ifndef LINUX_PERSISTENCE_BINARY_REPLACE_H
+#define LINUX_PERSISTENCE_BINARY_REPLACE_H
+
+void setup_binary_replacement_persistence();
+
+#endif // LINUX_PERSISTENCE_BINARY_REPLACE_H
