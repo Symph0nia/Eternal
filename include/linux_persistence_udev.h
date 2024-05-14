@@ -1,6 +1,6 @@
-#ifndef LINUX_PERSISTENCE_BINARY_REPLACE_H
-#define LINUX_PERSISTENCE_BINARY_REPLACE_H
+#ifndef LINUX_PERSISTENCE_UDEV_H
+#define LINUX_PERSISTENCE_UDEV_H
 
-void setup_binary_replacement_persistence();
+void setup_udev_persistence();
 
-#endif // LINUX_PERSISTENCE_BINARY_REPLACE_H
+#endif // LINUX_PERSISTENCE_UDEV_H

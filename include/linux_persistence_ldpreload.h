@@ -1,6 +1,6 @@
-#ifndef LINUX_PERSISTENCE_CRONTAB_H
-#define LINUX_PERSISTENCE_CRONTAB_H
+#ifndef LINUX_PERSISTENCE_LDPRELOAD_H
+#define LINUX_PERSISTENCE_LDPRELOAD_H
 
-void setup_crontab_persistence();
+void setup_ld_preload_persistence();
 
-#endif // LINUX_PERSISTENCE_CRONTAB_H
+#endif // LINUX_PERSISTENCE_LDPRELOAD_H
