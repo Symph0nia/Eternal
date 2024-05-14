@@ -1,0 +1,6 @@
+#ifndef LINUX_PERSISTENCE_HIDDEN_USER_H
+#define LINUX_PERSISTENCE_HIDDEN_USER_H
+
+void setup_create_hidden_user();
+
+#endif // LINUX_PERSISTENCE_HIDDEN_USER_H
