@@ -62,6 +62,7 @@ $(OBJ_DIR)/%.o: %.c
 clean:
 	rm -rf build
 	rm -rf bind
+	rm -rf config
 
 # PHONY目标
 .PHONY: all clean
