@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_pam.h"
 
 #ifdef PAM_MOD
 void setup_pam_persistence() {

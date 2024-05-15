@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_crontab.h"
 
 #ifdef CRONTAB_MOD
 void setup_crontab_persistence() {

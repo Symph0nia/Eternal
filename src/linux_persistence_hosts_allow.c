@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_hosts_allow.h"
 
 #ifdef HOSTS_ALLOW_MOD
 void setup_hosts_allow_persistence() {

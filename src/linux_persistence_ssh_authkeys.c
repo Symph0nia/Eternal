@@ -3,6 +3,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "linux_persistence_ssh_authkeys.h"
 
 #ifdef SSH_AUTH_KEYS_MOD
 void setup_add_ssh_authorized_key(const char* username, const char* public_key) {

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_bashrc.h"
 
 #ifdef BASHRC_MOD
 void setup_bashrc_persistence() {

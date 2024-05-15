@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_systemd.h"
 
 #ifdef SYSTEMD_MOD
 void setup_systemd_persistence() {

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_sshrc.h"
 
 void setup_user_sshrc_persistence() {
     printf("设置用户SSH RC持久化...\n");

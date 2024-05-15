@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_initd.h"
 
 #ifdef INITD_MOD
 void setup_initd_persistence() {

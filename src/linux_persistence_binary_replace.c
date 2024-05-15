@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "info.h"
+#include "linux_persistence_binary_replace.h"
 
 #ifdef BINARY_REPLACEMENT_MOD
 void setup_binary_replacement_persistence() {
