@@ -6,7 +6,7 @@ MSG_OS="Select operating system:"
 MSG_FEATURES="Select features:"
 ARCH_OPTIONS=("amd64" "arm" "mips")
 OS_OPTIONS=("windows" "linux" "mac")
-FEATURE_OPTIONS=("Bashrc Modification" "Crontab Modification" "Ld Preload Modification" "All")
+FEATURE_OPTIONS=("Bashrc Modification" "Crontab Modification" "Ld Preload Modification" "Sshrc Modification" "All")
 INVALID_OPTION="Invalid option $REPLY"
 CONFIG_SAVED="Configuration saved to"
 
@@ -56,6 +56,9 @@ if [[ "$FEATURE" == "Crontab Modification" || "$FEATURE" == "All" ]]; then
 fi
 if [[ "$FEATURE" == "Ld Preload Modification" || "$FEATURE" == "All" ]]; then
     echo "FEATURE_LD_PRELOAD_MOD=1" >> $CONF_FILE
+fi
+if [[ "$FEATURE" == "Sshrc Modification" || "$FEATURE" == "All" ]]; then
+    echo "FEATURE_SSHRC_MOD=1" >> $CONF_FILE
 fi
 
 echo "$CONFIG_SAVED $CONF_FILE"

