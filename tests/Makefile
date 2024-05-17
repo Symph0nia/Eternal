@@ -21,6 +21,8 @@ TARGET_LINUX_PERSISTENCE_LD_PRELOAD = $(OUTDIR)/test_linux_persistence_ld_preloa
 
 TARGET_LINUX_PERSISTENCE_SSHRC = $(OUTDIR)/test_linux_persistence_sshrc
 
+TARGET_LINUX_PERSISTENCE_SYSTEMD = $(OUTDIR)/test_linux_persistence_systemd
+
 # 单个源文件列表，包括 Unity 源文件和你的 info.c 源文件
 SOURCES_INFO = test_info.c ../src/info.c unity/unity.c
 
@@ -31,6 +33,8 @@ SOURCES_LINUX_PERSISTENCE_CRONTAB = test_linux_persistence_crontab.c ../src/linu
 SOURCES_LINUX_PERSISTENCE_LD_PRELOAD = test_linux_persistence_ld_preload.c ../src/linux_persistence_ld_preload.c unity/unity.c
 
 SOURCES_LINUX_PERSISTENCE_SSHRC = test_linux_persistence_sshrc.c ../src/linux_persistence_sshrc.c unity/unity.c
+
+SOURCES_LINUX_PERSISTENCE_SYSTEMD = test_linux_persistence_systemd.c ../src/linux_persistence_systemd.c unity/unity.c
 
 # 编译单个测试 info 并链接成一个可执行文件
 $(TARGET_INFO): $(SOURCES_INFO)
@@ -48,13 +52,17 @@ $(TARGET_LINUX_PERSISTENCE_LD_PRELOAD): $(SOURCES_LINUX_PERSISTENCE_LD_PRELOAD)
 $(TARGET_LINUX_PERSISTENCE_SSHRC): $(SOURCES_LINUX_PERSISTENCE_SSHRC)
 	$(CC) $(CFLAGS) -DSSHRC_MOD -o $@ $^
 
+$(TARGET_LINUX_PERSISTENCE_SYSTEMD): $(SOURCES_LINUX_PERSISTENCE_SYSTEMD)
+	$(CC) $(CFLAGS) -DSYSTEMD_MOD -o $@ $^
+
 # 运行所有测试
-test_all: $(TARGET_INFO) $(TARGET_LINUX_PERSISTENCE_BASHRC) $(TARGET_LINUX_PERSISTENCE_CRONTAB) $(TARGET_LINUX_PERSISTENCE_LD_PRELOAD) $(TARGET_LINUX_PERSISTENCE_SSHRC)
+test_all: $(TARGET_INFO) $(TARGET_LINUX_PERSISTENCE_BASHRC) $(TARGET_LINUX_PERSISTENCE_CRONTAB) $(TARGET_LINUX_PERSISTENCE_LD_PRELOAD) $(TARGET_LINUX_PERSISTENCE_SSHRC) $(TARGET_LINUX_PERSISTENCE_SYSTEMD)
 	./$(TARGET_INFO)
 	./$(TARGET_LINUX_PERSISTENCE_BASHRC)
 	./$(TARGET_LINUX_PERSISTENCE_CRONTAB)
 	./$(TARGET_LINUX_PERSISTENCE_LD_PRELOAD)
 	./$(TARGET_LINUX_PERSISTENCE_SSHRC)
+	./$(TARGET_LINUX_PERSISTENCE_SYSTEMD)
 
 # 运行单个测试
 test_info: $(TARGET_INFO)
@@ -71,6 +79,9 @@ test_linux_persistence_ld_preload: $(TARGET_LINUX_PERSISTENCE_LD_PRELOAD)
 
 test_linux_persistence_sshrc: $(TARGET_LINUX_PERSISTENCE_SSHRC)
 	./$(TARGET_LINUX_PERSISTENCE_SSHRC)
+
+test_linux_persistence_systemd: $(TARGET_LINUX_PERSISTENCE_SYSTEMD)
+	./$(TARGET_LINUX_PERSISTENCE_SYSTEMD)
 
 # 清理编译产生的文件
 clean:

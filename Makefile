@@ -45,6 +45,10 @@ ifeq ($(OS),linux)
     	SOURCES += src/linux_persistence_sshrc.c
         CFLAGS += -DSSHRC_MOD
     endif
+    ifeq ($(FEATURE_SYSTEMD_MOD),1)
+    	SOURCES += src/linux_persistence_systemd.c
+        CFLAGS += -DSYSTEMD_MOD
+    endif
 endif
 
 # 确保 SOURCES 不为空
