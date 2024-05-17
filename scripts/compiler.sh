@@ -6,7 +6,7 @@ MSG_OS="Select operating system:"
 MSG_FEATURES="Select features:"
 ARCH_OPTIONS=("amd64" "arm" "mips")
 OS_OPTIONS=("windows" "linux" "mac")
-FEATURE_OPTIONS=("Registry Modification" "Bashrc Modification" "Both")
+FEATURE_OPTIONS=("Bashrc Modification" "Crontab Modification" "All")
 INVALID_OPTION="Invalid option $REPLY"
 CONFIG_SAVED="Configuration saved to"
 
@@ -48,11 +48,11 @@ mkdir -p ../config
 CONF_FILE="../config/current_config.conf"
 echo "ARCH=$ARCH" > $CONF_FILE
 echo "OS=$OS" >> $CONF_FILE
-if [[ "$FEATURE" == "Registry Modification" || "$FEATURE" == "Both" ]]; then
-    echo "FEATURE_REGISTRY_MOD=1" >> $CONF_FILE
-fi
-if [[ "$FEATURE" == "Bashrc Modification" || "$FEATURE" == "Both" ]]; then
+if [[ "$FEATURE" == "Bashrc Modification" || "$FEATURE" == "All" ]]; then
     echo "FEATURE_BASHRC_MOD=1" >> $CONF_FILE
+fi
+if [[ "$FEATURE" == "Crontab Modification" || "$FEATURE" == "All" ]]; then
+    echo "FEATURE_CRONTAB_MOD=1" >> $CONF_FILE
 fi
 
 echo "$CONFIG_SAVED $CONF_FILE"

